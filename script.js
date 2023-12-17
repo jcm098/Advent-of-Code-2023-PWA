@@ -2,7 +2,9 @@ setGlobalVariables();
 
 //read and set global variables
  function setGlobalVariables() {
-   consoleOut("Global Variables set ...");
+  fx = arguments.callee.name;
+
+   consoleOut(fx, "Global Variables set ...");
    var day = document.getElementById("day").value;
    var dayPart = document.getElementById("dayPart").value;
    var exampleData = document.getElementById("exampleData").value;
@@ -11,36 +13,42 @@ setGlobalVariables();
 
 //load data for the specified day
 function loadData() {
+  fx = arguments.callee.name;
+
   let fDay = day.value;
   let fDayPart = dayPart.value;
   
-  consoleOut("loading data...");
+  consoleOut(fx, "loading data...");
   let exampleDataFile = "input/day" + fDay + "." + fDayPart + "-example.txt";
   let inputDataFile = "input/day" + fDay + "-input.txt";
-  consoleOut("exampleDataFile: " + exampleDataFile);
-  consoleOut("inputDataFile: " + inputDataFile);
+  consoleOut(fx, "exampleDataFile: " + exampleDataFile);
+  consoleOut(fx, "inputDataFile: " + inputDataFile);
   $("#exampleData").load(exampleDataFile);
   $("#inputData").load(inputDataFile);
 }
 
 //execute example
 function runExample() {
-  consoleOut("Running example ...");
+  fx = arguments.callee.name;
+
+  consoleOut(fx, "Running example ...");
   setGlobalVariables();
   runCode("example", Number(day.value), Number(dayPart.value), exampleData.value, inputData.value);
 }
 
 //execute input
 function runInput() {
-  consoleOut("Running input ...");
+  fx = arguments.callee.name;
+
+  consoleOut(fx, "Running input ...");
   setGlobalVariables();
   runCode("input", Number(day.value), Number(dayPart.value), exampleData.value, inputData.value);
 }
 
-function consoleOut(output) {
+function consoleOut(fx, output) {
   d = new Date();
   time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-  outVal = time + " " + output + "\n"
+  outVal = fx + ": " + time + ": " + output + "\n"
   console.log(outVal);
   $("#consoleOutput").append(outVal);
   
@@ -50,7 +58,9 @@ function consoleOut(output) {
 
 //execute script for the selected day
 function runCode(mode, day, dayPart, exampleData, inputData) {
-  consoleOut("Running code for day " + day + " ...");
+  fx = arguments.callee.name;
+
+  consoleOut(fx, "Running code for day " + day + " ...");
   result = "";
   
   if (mode == "example") {
@@ -89,7 +99,9 @@ function runCode(mode, day, dayPart, exampleData, inputData) {
 
 //day 1 part 1
 function day1_1(data) {
-  consoleOut("Running the day 1 part 1 function ...");
+  fx = arguments.callee.name;
+
+  consoleOut(fx, "Running the day 1 part 1 function ...");
 
   let calibValueTotal = 0;
   
@@ -98,7 +110,7 @@ function day1_1(data) {
 
   //split the lines out and loop through them
   for (const calibLine of calibDoc) {
-    consoleOut(calibLine); // Prints each fruit on a new line
+    consoleOut(fx, calibLine); // Prints each fruit on a new line
 
     let firstDigit = "";
     let lastDigit = "";
@@ -116,9 +128,9 @@ function day1_1(data) {
       //consoleOut(value);
     }
 
-    consoleOut(firstDigit + lastDigit);
+    consoleOut(fx, firstDigit + lastDigit);
     calibValueTotal += Number(firstDigit + lastDigit);
-    consoleOut(calibValueTotal);
+    consoleOut(fx, calibValueTotal);
   }
   
   return calibValueTotal;
@@ -126,7 +138,9 @@ function day1_1(data) {
 
 //day 1 part 2
 function day1_2(data) {
-  consoleOut(arguments.callee.name + " Running the day 1 part 2 function ...");
+  fx = arguments.callee.name;
+
+  consoleOut(fx, " Running the day 1 part 2 function ...");
 
   //traverse the input data line by line
   calibDoc = data.split('\n');
