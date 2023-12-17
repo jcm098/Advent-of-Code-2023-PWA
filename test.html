@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .tile {
+      width: 200px;
+      height: 150px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .tile:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+  </div>
+
+  <script>
+    // Add your tile data here
+    const tiles = [
+      {
+        title: "Gmail",
+        url: "https://mail.google.com",
+        icon: "https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png"
+      },
+      {
+        title: "Calendar",
+        url: "https://calendar.google.com",
+        icon: "https://www.gstatic.com/images/branding/product/1x/calendar_2020q4_48dp.png"
+      },
+      {
+        title: "To Do List",
+        url: "#",
+        icon: "https://img.icons8.com/ios-filled/50/000000/checklist.png"
+      }
+    ];
+
+    // Create and append tiles to the container
+    const container = document.querySelector('.container');
+    tiles.forEach(tile => {
+      const tileElement = document.createElement('div');
+      tileElement.classList.add('tile');
+      tileElement.innerHTML = `
+                <h3>${tile.title}</h3>
+                <img src="${tile.icon}" alt="${tile.title}">
+            `;
+      tileElement.addEventListener('click', () => {
+        window.location.href = tile.url;
+      });
+      container.appendChild(tileElement);
+    });
+  </script>
+</body>
+
+</html>

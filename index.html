@@ -9,15 +9,37 @@
 </head>
 
 <body>
-  Hello world
+  Advent of Code 2023
+  <script src="library/jquery.js"></script>
   <script src="script.js"></script>
 
-  <!--
-  This script places a badge on your repl's full-browser view back to your repl's cover
-  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-  teal, blue, blurple, magenta, pink!
-  -->
-  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+    <br/><br/>
+    <input type="text" id="day" name="day" placeholder="Day" onchange="loadData()">
+    <br/>
+    <textarea id="exampleData" name="exampleData" placeholder="Copy example input data here." rows="10" cols="40"></textarea>
+    <br/>
+    <textarea id="inputData" name="inputData" placeholder="Copy input data here." rows="10" cols="40"></textarea>
+
+  <br/>
+  <button type="button" onclick="runExample()">Execute on Example Data</button>
+  <button type="button" onclick="runInput()">Execute on Input Data</button>
+
+  <br/>
+  <br/>
+  
+    <input type="text" id="exampleResult" name="exampleResult" placeholder="Example results" readonly>
+
+  <br/>
+
+    <input type="text" id="inputResult" name="inputResult" placeholder="Input results" readonly>
+  
+  <br/>
+  <br/>
+  Console Output
+  <br/>
+  <textarea id="consoleOutput" name="consoleOutput" placeholder="Console Output." rows="10" cols="40" readonly></textarea>
+
+ 
 </body>
 
 </html>
