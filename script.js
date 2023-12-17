@@ -48,7 +48,7 @@ function runInput() {
 function consoleOut(fx, output) {
   d = new Date();
   time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-  outVal = fx + ": " + time + ": " + output + "\n"
+  outVal = time + ": " + fx + " > " + output + "\n"
   console.log(outVal);
   $("#consoleOutput").append(outVal);
   
