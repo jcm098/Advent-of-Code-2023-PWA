@@ -50,8 +50,6 @@ function consoleOut(fx, output) {
   time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
   outVal = time + ": " + fx + " > " + output + "\n"
   console.log(outVal);
-  $("#consoleOutput").append(outVal);
-  
 }
 
 //code here needs to pass variables the RIGHT WAY
@@ -84,15 +82,7 @@ function runCode(mode, day, dayPart, exampleData, inputData) {
   }
 
       
-  if (mode == "example") {
-    //set value of the exampleResult input field to the result
-    document.getElementById("exampleResult").value = result;
-  } else if (mode == "input") {
-    document.getElementById("inputResult").value = result;
-  } else {
-    //invalid parameter
-  }
-  
+  document.getElementById("result").value = result;
 }
 
 //scripts for dayzzzzz
