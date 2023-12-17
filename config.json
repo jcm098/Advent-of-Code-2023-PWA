@@ -1,0 +1,14 @@
+{
+    "days": [
+        {
+            "day": 1,
+            "parts": [
+                {
+                    "part": 1,
+                    "inputData": "https://adventofcode.com/2023/day/1/input"
+                }
+            ]
+        }
+
+    ]
+}
